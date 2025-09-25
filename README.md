@@ -35,7 +35,6 @@ AI 챗봇 서비스 백엔드 과제의 전체 요구사항을 구현했습니�
 
 #### 2. 과제 진행에 있어 AI를 어떻게 활용하셨나요? 어떤 어려움이 있었나요?
 
-Gemini를 **페어 프로그래밍 파트너**처럼 활용했습니다.
 -   **Boilerplate 코드 생성**: JPA Entity, DTO, Repository, Service, Controller의 기본 골격을 빠르게 생성하여 반복 작업을 최소화했습니다.
 -   **개념 설명 및 추천**: `@AuthenticationPrincipal`, `@PreAuthorize`, `@PageableDefault` 등 Spring의 고급 기능에 대한 정확한 사용법과 원리를 질문하여 코드의 품질을 높였습니다.
 -   **디버깅 파트너**: `403 Forbidden`, `createdAt` 형식 오류, `Unresolved Reference` 등 다양한 에러 발생 시, 에러 로그를 공유하고 가능한 원인과 해결책에 대한 아이디어를 얻었습니다. 특히 **`ROLE_` 접두사 문제**처럼 경험이 없으면 찾기 어려운 문제의 해결 방향을 잡는 데 큰 도움을 받았습니다.
