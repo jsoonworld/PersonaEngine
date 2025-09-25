@@ -5,6 +5,6 @@ import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.stereotype.Repository
 
 @Repository
-interface ThreadRepository : JpaRepository<Thread, Long> {
-    fun findFirstByUserOrderByIdDesc(user: User): Thread?
+interface ChatThreadRepository : JpaRepository<ChatThread, Long> {
+    fun findFirstByUserOrderByIdDesc(user: User): ChatThread?
 }

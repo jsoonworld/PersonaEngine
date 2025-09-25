@@ -13,7 +13,7 @@ import jakarta.persistence.ManyToOne
 import java.time.LocalDateTime
 
 @Entity
-class Thread(
+class ChatThread(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
     val user: User,

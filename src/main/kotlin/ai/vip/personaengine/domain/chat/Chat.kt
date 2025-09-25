@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToOne
 class Chat(
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "thread_id", nullable = false)
-    val thread: Thread,
+    val thread: ChatThread,
     @Lob
     @Column(nullable = false)
     val question: String,
