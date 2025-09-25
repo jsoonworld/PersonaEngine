@@ -2,12 +2,15 @@ package ai.vip.personaengine.application
 
 import ai.vip.personaengine.api.dto.ChatRequest
 import ai.vip.personaengine.api.dto.ChatResponse
+import ai.vip.personaengine.api.dto.ThreadWithChatsResponse
 import ai.vip.personaengine.domain.chat.Chat
 import ai.vip.personaengine.domain.chat.ChatRepository
 import ai.vip.personaengine.domain.chat.ChatThread
 import ai.vip.personaengine.domain.chat.ChatThreadRepository
 import ai.vip.personaengine.domain.user.UserRepository
 import ai.vip.personaengine.infrastructure.OpenAiClient
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
 import org.springframework.stereotype.Service
 import org.springframework.transaction.annotation.Transactional
 import java.time.Duration
@@ -46,6 +49,18 @@ class ChatService(
         val savedChat = chatRepository.save(chat)
 
         return ChatResponse.from(savedChat)
+    }
+
+    fun listUserChats(email: String, pageable: Pageable): Page<ThreadWithChatsResponse> {
+        val user = userRepository.findByEmail(email)
+            ?: throw IllegalArgumentException("사용자를 찾을 수 없습니다.")
+
+        val threadsPage: Page<ChatThread> = chatThreadRepository.findByUser(user, pageable)
+
+        return threadsPage.map { thread ->
+            val chats = chatRepository.findAllByThread(thread)
+            ThreadWithChatsResponse.from(thread, chats)
+        }
     }
 
     private fun isNewThreadRequired(thread: ChatThread): Boolean {

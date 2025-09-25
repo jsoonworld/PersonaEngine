@@ -1,6 +1,7 @@
 package ai.vip.personaengine.api.dto
 
 import ai.vip.personaengine.domain.chat.Chat
+import ai.vip.personaengine.domain.chat.ChatThread
 import java.time.LocalDateTime
 
 data class ChatRequest(
@@ -22,6 +23,26 @@ data class ChatResponse(
                 question = chat.question,
                 answer = chat.answer,
                 createdAt = chat.createdAt
+            )
+        }
+    }
+}
+
+data class ThreadWithChatsResponse(
+    val threadId: Long,
+    val userId: Long,
+    val lastChatAt: LocalDateTime,
+    val createdAt: LocalDateTime,
+    val chats: List<ChatResponse>
+) {
+    companion object {
+        fun from(thread: ChatThread, chats: List<Chat>): ThreadWithChatsResponse {
+            return ThreadWithChatsResponse(
+                threadId = thread.id,
+                userId = thread.user.id,
+                lastChatAt = thread.lastChatAt,
+                createdAt = thread.createdAt,
+                chats = chats.map { ChatResponse.from(it) }
             )
         }
     }
