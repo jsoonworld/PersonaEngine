@@ -49,7 +49,7 @@ class JwtTokenProvider(
             .parseSignedClaims(token)
             .payload
         val email: String = claims.subject
-        val authorities: List<GrantedAuthority> = listOf(SimpleGrantedAuthority(claims["role"] as String))
+        val authorities: List<GrantedAuthority> = listOf(SimpleGrantedAuthority("ROLE_${claims["role"] as String}"))
 
         return UsernamePasswordAuthenticationToken(email, "", authorities)
     }
