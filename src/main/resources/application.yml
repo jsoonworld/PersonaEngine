@@ -1,0 +1,21 @@
+jwt:
+  secret: ${JWT_SECRET_KEY:V2hhdElzVGhlU2VjcmV0S2V5Rm9ySldUU2lnbmluZ1RoaXNJc015U2VjcmV0S2V5}
+
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/persona_db
+    username: ${DB_USERNAME:postgres}
+    password: ${DB_PASSWORD:password}
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
+
+logging:
+  level:
+    org.springframework.security: DEBUG
