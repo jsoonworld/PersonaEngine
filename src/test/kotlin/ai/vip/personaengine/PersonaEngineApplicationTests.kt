@@ -1,4 +1,4 @@
-package ai.vip.persona_engine
+package ai.vip.personaengine
 
 import org.junit.jupiter.api.Test
 import org.springframework.boot.test.context.SpringBootTest
