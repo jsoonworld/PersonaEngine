@@ -1,0 +1,2 @@
+jwt:
+  secret: ${JWT_SECRET_KEY:V2hhdElzVGhlU2VjcmV0S2V5Rm9ySldUU2lnbmluZ1RoaXNJc015U2VjcmV0S2V5}
