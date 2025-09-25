@@ -14,7 +14,7 @@ data class ChatResponse(
     val id: Long,
     val question: String,
     val answer: String,
-    val createdAt: LocalDateTime
+    val createdAt: LocalDateTime?
 ) {
     companion object {
         fun from(chat: Chat): ChatResponse {
@@ -32,7 +32,7 @@ data class ThreadWithChatsResponse(
     val threadId: Long,
     val userId: Long,
     val lastChatAt: LocalDateTime,
-    val createdAt: LocalDateTime,
+    val createdAt: LocalDateTime?,
     val chats: List<ChatResponse>
 ) {
     companion object {
