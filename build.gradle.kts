@@ -34,8 +34,8 @@ dependencies {
 	runtimeOnly("io.jsonwebtoken:jjwt-impl:${jwtVersion}")
 	runtimeOnly("io.jsonwebtoken:jjwt-jackson:${jwtVersion}")
 
-//	runtimeOnly("com.h2database:h2")
 	runtimeOnly("org.postgresql:postgresql")
+	testRuntimeOnly("com.h2database:h2")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("org.jetbrains.kotlin:kotlin-test-junit5")
